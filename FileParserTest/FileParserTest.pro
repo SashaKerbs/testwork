@@ -5,9 +5,9 @@ CONFIG -= qt
 
 SOURCES += \
         main.cpp \
-    fileparcer.cpp \
-    argumentparcer.cpp
+    argumentparser.cpp \
+    fileparser.cpp
 
 HEADERS += \
-    fileparcer.h \
-    argumentparcer.h
+    argumentparser.h \
+    fileparser.h

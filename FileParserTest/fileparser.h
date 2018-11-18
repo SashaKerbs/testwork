@@ -1,18 +1,18 @@
-#ifndef FILEPARCER_H
-#define FILEPARCER_H
+#ifndef FILEPARSER_H
+#define FILEPARSER_H
 
 #include <string>
 
 using namespace std;
 
-class FileParcer
+class FileParser
 {
 public:
-    FileParcer(const string& file);
+    FileParser(const string& file);
     int findNumberOfWords(const string& word);
     unsigned __int32 getChecksum();
 private:
     string m_file;
 };
 
-#endif // FILEPARCER_H
+#endif // FILEPARSER_H

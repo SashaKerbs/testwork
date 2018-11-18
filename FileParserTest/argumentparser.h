@@ -1,12 +1,12 @@
-#ifndef ARGUMENTPARCER_H
-#define ARGUMENTPARCER_H
+#ifndef ARGUMENTPARSER_H
+#define ARGUMENTPARSER_H
 
 #include <map>
 #include <string>
 
 using namespace std;
 
-class ArgumentParcer
+class ArgumentParser
 {
 public:
     enum Function {
@@ -17,7 +17,7 @@ public:
     };
 
 public:
-    ArgumentParcer(int argc, char* argv[]);
+    ArgumentParser(int argc, char* argv[]);
     Function getFunction();
     const string getFileName();
     const string getSearchWord();
@@ -27,4 +27,4 @@ private:
     map <string, string> m_options;
 };
 
-#endif // ARGUMENTPARCER_H
+#endif // ARGUMENTPARSER_H

@@ -1,6 +1,6 @@
-#include "argumentparcer.h"
+#include "argumentparser.h"
 
-ArgumentParcer::ArgumentParcer(int argc, char *argv[])
+ArgumentParser::ArgumentParser(int argc, char *argv[])
 {
     for (int i = 1; i < argc; i++)
     {
@@ -21,7 +21,7 @@ ArgumentParcer::ArgumentParcer(int argc, char *argv[])
     }
 }
 
-ArgumentParcer::Function ArgumentParcer::getFunction()
+ArgumentParser::Function ArgumentParser::getFunction()
 {
     if (m_options.count("-m")) {
         if (m_options["-m"].compare("words") == 0)
@@ -34,7 +34,7 @@ ArgumentParcer::Function ArgumentParcer::getFunction()
         return NonFunction;
 }
 
-const string ArgumentParcer::getFileName()
+const string ArgumentParser::getFileName()
 {
     if(m_options.count("-f"))
         return m_options["-f"];
@@ -42,7 +42,7 @@ const string ArgumentParcer::getFileName()
         return "";
 }
 
-const string ArgumentParcer::getSearchWord()
+const string ArgumentParser::getSearchWord()
 {
     if(m_options.count("-v"))
         return m_options["-v"];

@@ -1,14 +1,14 @@
 #include <fstream>
 #include <iostream>
 
-#include "fileparcer.h"
+#include "fileparser.h"
 
-FileParcer::FileParcer(const string& file) : m_file(file)
+FileParser::FileParser(const string& file) : m_file(file)
 {
 
 }
 
-int FileParcer::findNumberOfWords(const string& word)
+int FileParser::findNumberOfWords(const string& word)
 {
     ifstream fin;
     int numberWords = 0;
@@ -26,7 +26,7 @@ int FileParcer::findNumberOfWords(const string& word)
     return numberWords;
 }
 
-unsigned __int32 FileParcer::getChecksum()
+unsigned __int32 FileParser::getChecksum()
 {
     ifstream fin;
     unsigned __int32 checksum = 0;

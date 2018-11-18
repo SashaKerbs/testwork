@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
 
-#include "argumentparcer.h"
-#include "fileparcer.h"
+#include "argumentparser.h"
+#include "fileparser.h"
 
 using namespace std;
 
@@ -10,29 +10,29 @@ void printHelp();
 
 int main(int argc, char* argv[])
 {
-    ArgumentParcer arg(argc, argv);
+    ArgumentParser arg(argc, argv);
     try {
         switch (arg.getFunction())
         {
-        case ArgumentParcer::FindWords:
+        case ArgumentParser::FindWords:
         {
-            FileParcer parcer(arg.getFileName());
+            FileParser parser(arg.getFileName());
             const string& word = arg.getSearchWord();
-            int count = parcer.findNumberOfWords(word);
+            int count = parser.findNumberOfWords(word);
             cout << "Number of words \"" << word << "\": " << count << endl;
             break;
         }
-        case ArgumentParcer::Checksum:
+        case ArgumentParser::Checksum:
         {
-            FileParcer parcer(arg.getFileName());
-            auto checksum = parcer.getChecksum();
+            FileParser parser(arg.getFileName());
+            auto checksum = parser.getChecksum();
             cout << "Checksum = 0x" << hex << checksum << endl;
             break;
         }
-        case ArgumentParcer::Help:
+        case ArgumentParser::Help:
             printHelp();
             break;
-        case ArgumentParcer::NonFunction:
+        case ArgumentParser::NonFunction:
             cout << "Use help -h";
             break;
         }
@@ -45,16 +45,16 @@ int main(int argc, char* argv[])
 
 void printHelp()
 {
-    cout << "Usage: FileParcerTest.exe [OPTION]... " << endl;
+    cout << "Usage: FileparserTest.exe [OPTION]... " << endl;
     cout << " -f FILE  " << endl;
     cout << " -m words|checksum " << endl;
     cout << " -v WORD " << endl;
     cout << " -h " << endl;
     cout << "\nExamples:\n" << endl;
-    cout << "FileParcerTest.exe -f FILE -m words -v WORD" << endl;
+    cout << "FileparserTest.exe -f FILE -m words -v WORD" << endl;
     cout << "Search for number of WORD in FILE\n" << endl;
-    cout << "FileParcerTest.exe -f FILE -m checksum" << endl;;
+    cout << "FileparserTest.exe -f FILE -m checksum" << endl;;
     cout << "Calculate a 32-bit checksum for FILE\n" << endl;
-    cout << "FileParcerTest.exe -h" << endl;
+    cout << "FileparserTest.exe -h" << endl;
     cout << "Show this help" << endl;
 }
